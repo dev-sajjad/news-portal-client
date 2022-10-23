@@ -18,10 +18,13 @@ const NewsSummeryCard = ({ news }) => {
 
   return (
     <Card className="mb-5">
-      <Card.Header className='d-flex justify-content-between align-items-center' as="h5">
+      <Card.Header
+        className="d-flex justify-content-between align-items-center"
+        as="h5"
+      >
         <div className="d-flex">
-                  <Image
-                      className="me-2"
+          <Image
+            className="me-2"
             src={author?.img}
             roundedCircle
             style={{ height: "70px" }}
