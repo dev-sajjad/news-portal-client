@@ -13,7 +13,7 @@ import BrandCarousel from "../BrandCarousel/BrandCarousel";
 
 const RightSideBar = () => {
   return (
-    <div>
+    <div className="position-fixed overflow-hidden">
       <ButtonGroup vertical>
         <Button className="mb-2" variant="outline-primary">
           <FaGoogle></FaGoogle> Login via Google

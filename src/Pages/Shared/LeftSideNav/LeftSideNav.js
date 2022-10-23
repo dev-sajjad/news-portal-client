@@ -12,7 +12,7 @@ const LeftSideNav = () => {
     }, [])
 
     return (
-        <div>
+        <div className='position-fixed overflow-hidden'>
             <h4>All Category: {categories.length}</h4>
 
             {

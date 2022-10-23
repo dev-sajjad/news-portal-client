@@ -2,21 +2,25 @@ import React from 'react';
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from 'react-router-dom';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
+import './Header.css'
 
 const Header = () => {
     return (
-      <div className="mb-3">
+      <div className="mb-3 position-sticky top-0 header">
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="#home">News Portal</Navbar.Brand>
+            <Navbar.Brand>
+              <Link to="/">News Portal </Link>
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link href="#features">All Category</Nav.Link>
                 <Nav.Link href="#pricing">Home</Nav.Link>
                 <Nav.Link href="#pricing">News</Nav.Link>
-              {/*   <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                {/*   <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
                     Another action
@@ -36,7 +40,7 @@ const Header = () => {
                   Dank memes
                 </Nav.Link>
               </Nav> */}
-              <div className=' d-block d-lg-none'>
+              <div className=" d-block d-lg-none">
                 <LeftSideNav></LeftSideNav>
               </div>
             </Navbar.Collapse>
