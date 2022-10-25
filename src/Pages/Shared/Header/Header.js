@@ -50,7 +50,7 @@ const Header = () => {
               </Nav>
               <Nav className='d-flex justify-content-center align-items-center'>
                 <Nav.Link href="#deets">
-                  {user?.uid ? <><span>{user?.email}</span> <Button variant='light' className='ml-2' onClick={handleLogout}>Logout</Button></> : <><Link to='/login'>Login</Link><Link to='/register'>Register</Link></> }
+                  {user?.uid ? <><span>{user?.displayName}</span> <Button variant='light' className='ml-2' onClick={handleLogout}>Logout</Button></> : <><Link to='/login'>Login</Link><Link to='/register'>Register</Link></> }
                 </Nav.Link>
                 <Nav.Link eventKey={2} href="#memes">
                   {

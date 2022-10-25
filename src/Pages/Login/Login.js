@@ -1,12 +1,17 @@
 import React, { useContext, useState } from 'react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
 
+  const navigate = useNavigate();
   const [error, setError] = useState('')
-  const {signIn, setUser} = useContext(AuthContext)
+  const { signIn, setUser } = useContext(AuthContext)
+  
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -20,6 +25,7 @@ const Login = () => {
           const user = result.user;
           setUser(user);
           form.reset()
+          navigate(from, {replace: true});
           setError('');
       })
         .catch(error => {
@@ -51,7 +57,9 @@ const Login = () => {
               required
             />
           </Form.Group>
-
+          <>
+            <p>Don't have an account? <Link to='/register'>Register</Link></p>
+          </>
           <Button variant="primary" type="submit">
             Login
           </Button>
