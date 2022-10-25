@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
+
+  const [error, setError] = useState('')
+  const {signIn, setUser} = useContext(AuthContext)
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -10,6 +14,18 @@ const Login = () => {
         const form = event.target;
          const email = form.email.value;
          const password = form.password.value;
+
+      signIn(email, password)
+        .then((result) => {
+          const user = result.user;
+          setUser(user);
+          form.reset()
+          setError('');
+      })
+        .catch(error => {
+          console.log(error);
+          setError(error.message)
+      })
     }
 
     return (
@@ -39,7 +55,9 @@ const Login = () => {
           <Button variant="primary" type="submit">
             Login
           </Button>
-          <Form.Text className="text-muted"></Form.Text>
+          <Form.Text className="text-muted d-inline">
+           {error}
+          </Form.Text>
         </Form>
       </div>
     );
